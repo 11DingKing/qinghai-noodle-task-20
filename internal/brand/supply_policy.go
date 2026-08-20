@@ -90,3 +90,9 @@ func CloneCatalog(snapshot CatalogSnapshot) CatalogSnapshot {
 	}
 	return clone
 }
+
+func recallClosureSnapshot(recall Recall) Recall {
+	clone := recall
+	clone.Acknowledged = nil
+	return clone
+}

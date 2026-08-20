@@ -201,6 +201,8 @@ func (s *Service) PublishStoreCatalog(ctx context.Context, store StoreProfile, l
 }
 
 func (s *Service) CloseRecall(ctx context.Context, recall Recall) (Recall, error) {
+	recall = recallClosureSnapshot(recall)
+
 	if err := ctx.Err(); err != nil {
 		return Recall{}, fmt.Errorf("close recall: %w", err)
 	}
